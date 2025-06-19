@@ -1,0 +1,26 @@
+name: Database Deployment
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy using SSH and Docker Compose
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          script: |
+            cd /root/ca2one_be/Test_strapi
+            git fetch origin
+            git checkout main
+            git pull
+            docker-compose down || true
+            docker-compose build
+            docker-compose up -d --remove-orphans
+            docker image prune -f
