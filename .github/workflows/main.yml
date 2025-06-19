@@ -16,7 +16,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            cd /root/ca2one_be/Test_strapi
+            cd /root/ca2one_be/Test_Strapi
             git fetch origin
             git checkout main
             git pull
