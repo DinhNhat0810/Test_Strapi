@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedFooterItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footer_items';
+  info: {
+    displayName: 'footer-item';
+    icon: 'link';
+  };
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -105,6 +119,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.footer-item': SharedFooterItem;
       'shared.media': SharedMedia;
       'shared.meta-social': SharedMetaSocial;
       'shared.quote': SharedQuote;
