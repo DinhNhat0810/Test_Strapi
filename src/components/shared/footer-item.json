@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_footer_items",
+  "info": {
+    "displayName": "footer-item",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "link": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    }
+  },
+  "config": {}
+}
