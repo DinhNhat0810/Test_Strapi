@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_support_items",
+  "info": {
+    "displayName": "support-item",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "link_download": {
+      "type": "string"
+    },
+    "rank": {
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "config": {}
+}

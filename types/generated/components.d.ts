@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedAgentItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_agent_items';
+  info: {
+    displayName: 'agent-item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone_number: Schema.Attribute.String;
+  };
+}
+
 export interface SharedFooterItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_footer_items';
   info: {
@@ -11,6 +24,21 @@ export interface SharedFooterItem extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedLegislationItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_legislation_items';
+  info: {
+    displayName: 'legislation-item';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    document_type: Schema.Attribute.String & Schema.Attribute.Required;
+    effect_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    link_download: Schema.Attribute.String;
+    publish_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    symbol_number: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -116,16 +144,48 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSupportItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_support_items';
+  info: {
+    displayName: 'support-item';
+    icon: 'sun';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    link_download: Schema.Attribute.String;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    rank: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<1>;
+  };
+}
+
+export interface SharedWrapSupportItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_wrap_support_items';
+  info: {
+    displayName: 'wrap-support-item';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    rank: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<1>;
+    support_item: Schema.Attribute.Component<'shared.support-item', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.agent-item': SharedAgentItem;
       'shared.footer-item': SharedFooterItem;
+      'shared.legislation-item': SharedLegislationItem;
       'shared.media': SharedMedia;
       'shared.meta-social': SharedMetaSocial;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.support-item': SharedSupportItem;
+      'shared.wrap-support-item': SharedWrapSupportItem;
     }
   }
 }

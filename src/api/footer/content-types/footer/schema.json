@@ -34,6 +34,15 @@
       },
       "component": "shared.footer-item",
       "repeatable": true
+    },
+    "rank": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": 1
     }
   }
 }

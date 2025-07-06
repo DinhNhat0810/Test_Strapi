@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_wrap_support_items",
+  "info": {
+    "displayName": "wrap-support-item"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "support_item": {
+      "type": "component",
+      "component": "shared.support-item",
+      "repeatable": true
+    },
+    "rank": {
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "config": {}
+}

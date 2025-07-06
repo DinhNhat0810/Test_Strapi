@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_legislation_items",
+  "info": {
+    "displayName": "legislation-item"
+  },
+  "options": {},
+  "attributes": {
+    "document_type": {
+      "type": "string",
+      "required": true
+    },
+    "symbol_number": {
+      "type": "string",
+      "required": true
+    },
+    "publish_date": {
+      "type": "date",
+      "required": true
+    },
+    "effect_date": {
+      "type": "date",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": false
+    },
+    "link_download": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
