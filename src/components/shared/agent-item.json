@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_agent_items",
+  "info": {
+    "displayName": "agent-item"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "phone_number": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
