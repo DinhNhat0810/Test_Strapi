@@ -1300,6 +1300,57 @@ export interface ApiNoticeBoardPageNoticeBoardPage
   };
 }
 
+export interface ApiPaymentPagePaymentPage extends Struct.SingleTypeSchema {
+  collectionName: 'payment_pages';
+  info: {
+    displayName: 'PaymentPage';
+    pluralName: 'payment-pages';
+    singularName: 'payment-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODEwNDk1OTksImp0aSI6ImY1ZGE3ZGZkLTAzMTctNDRlNC1hZjQ2LWE3MDcxNWUyNDYyYyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImUzZjNhMjZmIn0.AmMOMnDT3iReryEPZzPZrwPlRLvvVKHFcTBYKX5UYJ9jxFt1I4bv6MuiCXFA7Qc43mDdQJKclrECLRpZKyaf-Q';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::payment-page.payment-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPressPagePressPage extends Struct.SingleTypeSchema {
   collectionName: 'press_pages';
   info: {
@@ -1419,6 +1470,58 @@ export interface ApiPricingPagePricingPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pricing-page.pricing-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPagePrivacyPolicyPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policy_pages';
+  info: {
+    displayName: 'PrivacyPolicyPage';
+    pluralName: 'privacy-policy-pages';
+    singularName: 'privacy-policy-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODEwNDk1OTksImp0aSI6ImY1ZGE3ZGZkLTAzMTctNDRlNC1hZjQ2LWE3MDcxNWUyNDYyYyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImUzZjNhMjZmIn0.AmMOMnDT3iReryEPZzPZrwPlRLvvVKHFcTBYKX5UYJ9jxFt1I4bv6MuiCXFA7Qc43mDdQJKclrECLRpZKyaf-Q';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy-page.privacy-policy-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1568,6 +1671,109 @@ export interface ApiSupportPageSupportPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::support-page.support-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
+  collectionName: 'terms_pages';
+  info: {
+    displayName: 'TermsPage';
+    pluralName: 'terms-pages';
+    singularName: 'terms-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODEwNDk1OTksImp0aSI6ImY1ZGE3ZGZkLTAzMTctNDRlNC1hZjQ2LWE3MDcxNWUyNDYyYyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImUzZjNhMjZmIn0.AmMOMnDT3iReryEPZzPZrwPlRLvvVKHFcTBYKX5UYJ9jxFt1I4bv6MuiCXFA7Qc43mDdQJKclrECLRpZKyaf-Q';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terms-page.terms-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUserAgreementPageUserAgreementPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'user_agreement_pages';
+  info: {
+    displayName: 'UserAgreementPage';
+    pluralName: 'user-agreement-pages';
+    singularName: 'user-agreement-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODEwNDk1OTksImp0aSI6ImY1ZGE3ZGZkLTAzMTctNDRlNC1hZjQ2LWE3MDcxNWUyNDYyYyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImUzZjNhMjZmIn0.AmMOMnDT3iReryEPZzPZrwPlRLvvVKHFcTBYKX5UYJ9jxFt1I4bv6MuiCXFA7Qc43mDdQJKclrECLRpZKyaf-Q';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-agreement-page.user-agreement-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2141,13 +2347,17 @@ declare module '@strapi/strapi' {
       'api::legislation.legislation': ApiLegislationLegislation;
       'api::lookup-digital-certificate.lookup-digital-certificate': ApiLookupDigitalCertificateLookupDigitalCertificate;
       'api::notice-board-page.notice-board-page': ApiNoticeBoardPageNoticeBoardPage;
+      'api::payment-page.payment-page': ApiPaymentPagePaymentPage;
       'api::press-page.press-page': ApiPressPagePressPage;
       'api::press.press': ApiPressPress;
       'api::pricing-page.pricing-page': ApiPricingPagePricingPage;
+      'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::register-form.register-form': ApiRegisterFormRegisterForm;
       'api::rs-page.rs-page': ApiRsPageRsPage;
       'api::sp-page.sp-page': ApiSpPageSpPage;
       'api::support-page.support-page': ApiSupportPageSupportPage;
+      'api::terms-page.terms-page': ApiTermsPageTermsPage;
+      'api::user-agreement-page.user-agreement-page': ApiUserAgreementPageUserAgreementPage;
       'api::user-guide.user-guide': ApiUserGuideUserGuide;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
