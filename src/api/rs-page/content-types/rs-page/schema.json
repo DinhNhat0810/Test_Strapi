@@ -4,7 +4,7 @@
   "info": {
     "singularName": "rs-page",
     "pluralName": "rs-pages",
-    "displayName": "RSPage"
+    "displayName": "ProductPage-RemoteSigning"
   },
   "options": {
     "draftAndPublish": true

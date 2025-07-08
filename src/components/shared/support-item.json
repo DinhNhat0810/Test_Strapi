@@ -14,12 +14,19 @@
     "description": {
       "type": "text"
     },
-    "link_download": {
-      "type": "string"
-    },
     "rank": {
       "type": "integer",
       "default": 1
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

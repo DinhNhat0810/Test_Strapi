@@ -4,7 +4,7 @@
   "info": {
     "singularName": "lookup-digital-certificate",
     "pluralName": "lookup-digital-certificates",
-    "displayName": "LookupDigitalCertificate"
+    "displayName": "Support-LookupDigitalCertificate"
   },
   "options": {
     "draftAndPublish": true

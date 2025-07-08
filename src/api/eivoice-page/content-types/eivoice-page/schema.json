@@ -4,7 +4,7 @@
   "info": {
     "singularName": "eivoice-page",
     "pluralName": "eivoice-pages",
-    "displayName": "EivoicePage"
+    "displayName": "ProductPage-Einvoice"
   },
   "options": {
     "draftAndPublish": true
