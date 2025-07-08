@@ -4,7 +4,7 @@
   "info": {
     "singularName": "sp-page",
     "pluralName": "sp-pages",
-    "displayName": "SPPage"
+    "displayName": "ProductPage-SignPlatform"
   },
   "options": {
     "draftAndPublish": true

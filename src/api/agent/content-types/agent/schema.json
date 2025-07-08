@@ -4,7 +4,7 @@
   "info": {
     "singularName": "agent",
     "pluralName": "agents",
-    "displayName": "Agent"
+    "displayName": "Support-Agent"
   },
   "options": {
     "draftAndPublish": true

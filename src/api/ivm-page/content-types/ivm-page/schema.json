@@ -4,7 +4,7 @@
   "info": {
     "singularName": "ivm-page",
     "pluralName": "ivm-pages",
-    "displayName": "IVMPage"
+    "displayName": "ProductPage-IVM"
   },
   "options": {
     "draftAndPublish": true

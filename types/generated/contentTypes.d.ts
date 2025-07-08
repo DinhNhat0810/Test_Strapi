@@ -413,7 +413,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   collectionName: 'about_uses';
   info: {
-    displayName: 'AboutUs';
+    displayName: 'AboutUsPage';
     pluralName: 'about-uses';
     singularName: 'about-us';
   };
@@ -485,7 +485,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
 export interface ApiAgentAgent extends Struct.SingleTypeSchema {
   collectionName: 'agents';
   info: {
-    displayName: 'Agent';
+    displayName: 'Support-Agent';
     pluralName: 'agents';
     singularName: 'agent';
   };
@@ -707,7 +707,7 @@ export interface ApiBlogAndNewsPageBlogAndNewsPage
 export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
   collectionName: 'blog_pages';
   info: {
-    displayName: 'BlogPage';
+    displayName: 'BlogsPage';
     pluralName: 'blog-pages';
     singularName: 'blog-page';
   };
@@ -995,7 +995,7 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
 export interface ApiDownloadDownload extends Struct.SingleTypeSchema {
   collectionName: 'downloads';
   info: {
-    displayName: 'Download';
+    displayName: 'Support-Download';
     pluralName: 'downloads';
     singularName: 'download';
   };
@@ -1033,7 +1033,7 @@ export interface ApiDownloadDownload extends Struct.SingleTypeSchema {
 export interface ApiEivoicePageEivoicePage extends Struct.SingleTypeSchema {
   collectionName: 'eivoice_pages';
   info: {
-    displayName: 'EivoicePage';
+    displayName: 'ProductPage-Einvoice';
     pluralName: 'eivoice-pages';
     singularName: 'eivoice-page';
   };
@@ -1152,7 +1152,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiIvmPageIvmPage extends Struct.SingleTypeSchema {
   collectionName: 'ivm_pages';
   info: {
-    displayName: 'IVMPage';
+    displayName: 'ProductPage-IVM';
     pluralName: 'ivm-pages';
     singularName: 'ivm-page';
   };
@@ -1189,7 +1189,7 @@ export interface ApiIvmPageIvmPage extends Struct.SingleTypeSchema {
 export interface ApiLegislationLegislation extends Struct.SingleTypeSchema {
   collectionName: 'legislations';
   info: {
-    displayName: 'Legislation';
+    displayName: 'Support-Legislation';
     pluralName: 'legislations';
     singularName: 'legislation';
   };
@@ -1227,7 +1227,7 @@ export interface ApiLookupDigitalCertificateLookupDigitalCertificate
   extends Struct.SingleTypeSchema {
   collectionName: 'lookup_digital_certificates';
   info: {
-    displayName: 'LookupDigitalCertificate';
+    displayName: 'Support-LookupDigitalCertificate';
     pluralName: 'lookup-digital-certificates';
     singularName: 'lookup-digital-certificate';
   };
@@ -1533,7 +1533,7 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
 export interface ApiRegisterFormRegisterForm extends Struct.SingleTypeSchema {
   collectionName: 'register_forms';
   info: {
-    displayName: 'RegisterForm';
+    displayName: 'Support-RegisterForm';
     pluralName: 'register-forms';
     singularName: 'register-form';
   };
@@ -1571,7 +1571,7 @@ export interface ApiRegisterFormRegisterForm extends Struct.SingleTypeSchema {
 export interface ApiRsPageRsPage extends Struct.SingleTypeSchema {
   collectionName: 'rs_pages';
   info: {
-    displayName: 'RSPage';
+    displayName: 'ProductPage-RemoteSigning';
     pluralName: 'rs-pages';
     singularName: 'rs-page';
   };
@@ -1608,7 +1608,7 @@ export interface ApiRsPageRsPage extends Struct.SingleTypeSchema {
 export interface ApiSpPageSpPage extends Struct.SingleTypeSchema {
   collectionName: 'sp_pages';
   info: {
-    displayName: 'SPPage';
+    displayName: 'ProductPage-SignPlatform';
     pluralName: 'sp-pages';
     singularName: 'sp-page';
   };
@@ -1785,7 +1785,7 @@ export interface ApiUserAgreementPageUserAgreementPage
 export interface ApiUserGuideUserGuide extends Struct.SingleTypeSchema {
   collectionName: 'user_guides';
   info: {
-    displayName: 'UserGuide';
+    displayName: 'Support-UserGuide';
     pluralName: 'user-guides';
     singularName: 'user-guide';
   };

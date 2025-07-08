@@ -36,7 +36,7 @@ export interface SharedLegislationItem extends Struct.ComponentSchema {
     content: Schema.Attribute.Text;
     document_type: Schema.Attribute.String & Schema.Attribute.Required;
     effect_date: Schema.Attribute.Date & Schema.Attribute.Required;
-    link_download: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publish_date: Schema.Attribute.Date & Schema.Attribute.Required;
     symbol_number: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -152,7 +152,7 @@ export interface SharedSupportItem extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    link_download: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
