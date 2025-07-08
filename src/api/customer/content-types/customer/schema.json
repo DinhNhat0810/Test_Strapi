@@ -57,12 +57,20 @@
       "inversedBy": "customers"
     },
     "author": {
-      "type": "string",
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "customers"
+    },
+    "Seo": {
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "shared.seo",
+      "repeatable": true
     },
     "Content": {
       "type": "customField",
@@ -77,16 +85,6 @@
         "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODEwNDk1OTksImp0aSI6ImY1ZGE3ZGZkLTAzMTctNDRlNC1hZjQ2LWE3MDcxNWUyNDYyYyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImUzZjNhMjZmIn0.AmMOMnDT3iReryEPZzPZrwPlRLvvVKHFcTBYKX5UYJ9jxFt1I4bv6MuiCXFA7Qc43mDdQJKclrECLRpZKyaf-Q",
         "preset": "rich"
       }
-    },
-    "Seo": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.seo",
-      "repeatable": true
     }
   }
 }
