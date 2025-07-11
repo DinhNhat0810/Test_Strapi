@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_summaries",
+  "info": {
+    "singularName": "news-summary",
+    "pluralName": "news-summaries",
+    "displayName": "NewsSummary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "defaultSeo": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

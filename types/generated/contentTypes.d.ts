@@ -516,75 +516,6 @@ export interface ApiAgentAgent extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
-  info: {
-    description: 'Create your blog content';
-    displayName: 'Article';
-    pluralName: 'articles';
-    singularName: 'article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODEwNDk1OTksImp0aSI6ImY1ZGE3ZGZkLTAzMTctNDRlNC1hZjQ2LWE3MDcxNWUyNDYyYyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImUzZjNhMjZmIn0.AmMOMnDT3iReryEPZzPZrwPlRLvvVKHFcTBYKX5UYJ9jxFt1I4bv6MuiCXFA7Qc43mDdQJKclrECLRpZKyaf-Q';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article.article'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    Seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   collectionName: 'authors';
   info: {
@@ -601,7 +532,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     bio: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -830,6 +760,20 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    featured: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
+    featured_rank: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<1>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -884,7 +828,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1111,39 +1054,6 @@ export interface ApiEivoicePageEivoicePage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiFeaturedArticleFeaturedArticle
-  extends Struct.SingleTypeSchema {
-  collectionName: 'featured_articles';
-  info: {
-    displayName: 'FeaturedArticle';
-    pluralName: 'featured-articles';
-    singularName: 'featured-article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::featured-article.featured-article'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
   collectionName: 'footers';
   info: {
@@ -1331,6 +1241,44 @@ export interface ApiLookupDigitalCertificateLookupDigitalCertificate
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::lookup-digital-certificate.lookup-digital-certificate'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNewsSummaryNewsSummary extends Struct.SingleTypeSchema {
+  collectionName: 'news_summaries';
+  info: {
+    displayName: 'NewsSummary';
+    pluralName: 'news-summaries';
+    singularName: 'news-summary';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultSeo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-summary.news-summary'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2530,7 +2478,6 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::agent.agent': ApiAgentAgent;
-      'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::award.award': ApiAwardAward;
       'api::blog-and-news-page.blog-and-news-page': ApiBlogAndNewsPageBlogAndNewsPage;
@@ -2541,12 +2488,12 @@ declare module '@strapi/strapi' {
       'api::customer.customer': ApiCustomerCustomer;
       'api::download.download': ApiDownloadDownload;
       'api::eivoice-page.eivoice-page': ApiEivoicePageEivoicePage;
-      'api::featured-article.featured-article': ApiFeaturedArticleFeaturedArticle;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
       'api::ivm-page.ivm-page': ApiIvmPageIvmPage;
       'api::legislation.legislation': ApiLegislationLegislation;
       'api::lookup-digital-certificate.lookup-digital-certificate': ApiLookupDigitalCertificateLookupDigitalCertificate;
+      'api::news-summary.news-summary': ApiNewsSummaryNewsSummary;
       'api::notice-board-page.notice-board-page': ApiNoticeBoardPageNoticeBoardPage;
       'api::payment-page.payment-page': ApiPaymentPagePaymentPage;
       'api::press-page.press-page': ApiPressPagePressPage;
